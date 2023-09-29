@@ -33339,6 +33339,29 @@ objects:
       kind: PrometheusRule
       metadata:
         labels:
+          prometheus: sre-dns-alerts
+          role: alert-rules
+        name: sre-dns-alerts
+        namespace: openshift-monitoring
+      spec:
+        groups:
+        - name: sre-dns-alerts
+          rules:
+          - alert: CoreDNSErrorsHighSRE
+            expr: "(sum by(namespace) (rate(coredns_dns_responses_total{rcode=\"SERVFAIL\"\
+              }[5m]))\n  /\nsum by(namespace) (rate(coredns_dns_responses_total[5m])))\n\
+              > 0.01\n"
+            for: 5m
+            labels:
+              severity: critical
+            annotations:
+              summary: CoreDNS serverfail
+              description: CoreDNS is returning SERVFAIL for {{ $value | humanizePercentage
+                }} of requests.
+    - apiVersion: monitoring.coreos.com/v1
+      kind: PrometheusRule
+      metadata:
+        labels:
           prometheus: sre-elasticsearch-jobs
           role: alert-rules
         name: sre-elasticsearch-jobs
