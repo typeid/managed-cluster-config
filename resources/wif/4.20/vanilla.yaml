@@ -1,11 +1,11 @@
-id: v4.17
+id: v4.20
 kind: WifTemplate
 service_accounts:
   - access_method: impersonate
     id: osd-deployer
     osd_role: deployer
     roles:
-      - id: osd_deployer_v4.17
+      - id: osd_deployer_v4.20
         kind: Role
         permissions:
           - compute.acceleratorTypes.list
@@ -190,7 +190,7 @@ service_accounts:
     kind: ServiceAccount
     osd_role: cloud-credential-operator-gcp-ro-creds
     roles:
-      - id: cloud_credential_operator_gcp_ro_creds_v4.17
+      - id: cloud_credential_operator_gcp_ro_creds_v4.20
         kind: Role
         permissions:
           - iam.roles.get
@@ -210,7 +210,7 @@ service_accounts:
     kind: ServiceAccount
     osd_role: operator-cloud-network-config-controller-gcp
     roles:
-      - id: cloud_network_config_controller_gcp_v4.17
+      - id: cloud_network_config_controller_gcp_v4.20
         kind: Role
         permissions:
           - compute.instances.get
@@ -229,7 +229,7 @@ service_accounts:
     kind: ServiceAccount
     osd_role: operator-gcp-ccm
     roles:
-      - id: gcp_cloud_controller_manager_v4.17
+      - id: gcp_cloud_controller_manager_v4.20
         kind: Role
         permissions:
           - compute.addresses.create
@@ -289,7 +289,7 @@ service_accounts:
       - id: resourcemanager.tagUser
         kind: Role
         predefined: true
-      - id: gcp_pd_csi_driver_operator_v4.17
+      - id: gcp_pd_csi_driver_operator_v4.20
         kind: Role
         permissions:
           - compute.instances.attachDisk
@@ -307,7 +307,7 @@ service_accounts:
     kind: ServiceAccount
     osd_role: operator-image-registry-gcs
     roles:
-      - id: image_registry_gcs_v4.17
+      - id: image_registry_gcs_v4.20
         kind: Role
         permissions:
           - resourcemanager.tagValueBindings.create
@@ -334,7 +334,7 @@ service_accounts:
     kind: ServiceAccount
     osd_role: operator-ingress-gcp
     roles:
-      - id: ingress_operator_gcp_v4.17
+      - id: ingress_operator_gcp_v4.20
         kind: Role
         permissions:
           - dns.changes.create
@@ -353,7 +353,7 @@ service_accounts:
     kind: ServiceAccount
     osd_role: operator-machine-api-gcp
     roles:
-      - id: machine_api_gcp_v4.17
+      - id: machine_api_gcp_v4.20
         kind: Role
         permissions:
           - compute.acceleratorTypes.get
@@ -364,6 +364,8 @@ service_accounts:
           - compute.globalOperations.get
           - compute.globalOperations.list
           - compute.healthChecks.useReadOnly
+          - compute.images.get
+          - compute.images.getFromFamily
           - compute.instanceGroups.create
           - compute.instanceGroups.delete
           - compute.instanceGroups.get
